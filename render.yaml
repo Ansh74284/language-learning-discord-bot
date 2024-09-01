@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: language-learning-discord-bot
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: TRANSLATION_API_KEY
+        sync: false
