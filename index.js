@@ -9,12 +9,13 @@ const client = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_M
 
 client.commands = new Map();
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-
-for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
+async function loadCommands() {
+    const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+    // ... rest of your command loading logic
 }
+
+// Call this function where appropriate
+loadCommands().catch(console.error);
 
 client.once('ready', () => {
     console.log('Bot is Online!');
